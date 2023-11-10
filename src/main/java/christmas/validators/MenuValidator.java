@@ -1,10 +1,9 @@
 package christmas.validators;
 
+import christmas.model.Menu;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
-
-import christmas.model.Menu;
 
 public class MenuValidator {
     private static final String INVALID_ORDER = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
@@ -30,7 +29,7 @@ public class MenuValidator {
 
     static Menu validateExistance(Menu menu) {
         List<Menu> menus = List.of(Menu.values());
-        if (!menus.contains(menu)) {
+        if (!menus.contains(menu) || menu.equals(Menu.NONE)) {
             throw new IllegalArgumentException(INVALID_ORDER);
         }
         return menu;
