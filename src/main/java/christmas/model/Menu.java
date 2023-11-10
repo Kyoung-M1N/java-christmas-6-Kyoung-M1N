@@ -40,6 +40,21 @@ public enum Menu {
                 .orElse(NONE);
     }
 
+    public static boolean isMainDish(Menu menu) {
+        if (menu == Menu.T_BONE_STEAK || menu == Menu.BBQ_RIP || menu == Menu.SEAFOOD_PASTA
+                || menu == Menu.CRISTMAS_PASTA) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isDessert(Menu menu) {
+        if (menu == Menu.CHOCOLATE_CAKE || menu == Menu.ICECREAM) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean isBeverage(Menu menu) {
         if (menu == Menu.ZERO_COKE || menu == Menu.RED_WINE || menu == Menu.CHAMPAGNE) {
             return true;
