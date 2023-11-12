@@ -1,7 +1,6 @@
 package christmas.domain;
 
 import java.util.Map;
-
 import christmas.controller.EventController;
 import christmas.model.Event;
 import christmas.model.Menu;
@@ -17,17 +16,17 @@ public class EventPlanner {
             OutputView.printMenu(orderList, date);
             int price = OutputView.printPrice(orderList);
             Map<Event, Integer> benefitList = EventController.eventCount(orderList, date, price);
-            OutputView.printPresentation(benefitList);
-            OutputView.printBenefits(benefitList);
-            int discount = OutputView.printBenefitPrice(benefitList);
-            OutputView.printPayment(price, discount);
-            OutputView.printBadge(discount);
+            printEventResult(benefitList, price);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    static void benefitPrint() {
-
+    static void printEventResult(Map<Event, Integer> benefitList, int price) {
+        OutputView.printPresentation(benefitList);
+        OutputView.printBenefits(benefitList);
+        int discount = OutputView.printBenefitPrice(benefitList);
+        OutputView.printPayment(price, discount);
+        OutputView.printBadge(discount);
     }
 }
