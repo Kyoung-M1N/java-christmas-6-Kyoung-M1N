@@ -1,7 +1,5 @@
 package christmas.model;
 
-import java.util.Arrays;
-
 public enum Event {
     D_DAY_DISCOUNT("크리스마스 디데이 할인"),
     WEEKDAY_DISCOUNT("평일 할인"),
@@ -18,12 +16,5 @@ public enum Event {
 
     public String getName() {
         return name;
-    }
-
-    public static Event getEvent(String name) {
-        return Arrays.stream(values())
-                .filter(event -> event.name.equals(name))
-                .findAny()
-                .orElse(NONE);
     }
 }
