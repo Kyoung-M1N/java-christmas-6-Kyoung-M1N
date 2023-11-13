@@ -2,7 +2,6 @@ package christmas.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import christmas.model.Event;
 import christmas.model.Menu;
 

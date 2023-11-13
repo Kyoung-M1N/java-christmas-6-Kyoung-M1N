@@ -2,7 +2,6 @@ package christmas.view;
 
 import christmas.model.Event;
 import christmas.model.Menu;
-
 import java.text.DecimalFormat;
 import java.util.Map;
 
@@ -26,14 +25,9 @@ public class OutputView {
         }
     }
 
-    public static int printPrice(Map<Menu, Integer> order) {
+    public static void printPrice(int price) {
         System.out.println("\n<할인 전 총주문 금액>");
-        int price = 0;
-        for (Menu menu : order.keySet()) {
-            price += (menu.getPrice() * order.get(menu));
-        }
         System.out.println(formatter.format(price));
-        return price;
     }
 
     public static void printPresentation(Map<Event, Integer> benefit) {
@@ -54,17 +48,11 @@ public class OutputView {
                 System.out.printf("%s: -" + PRICE, event.getName(), formatter.format(benefit.get(event)));
             }
         }
-
     }
 
-    public static int printBenefitPrice(Map<Event, Integer> benefit) {
-        int benefitPrice = 0;
+    public static void printBenefitPrice(int discount) {
         System.out.println("\n<총혜택 금액>");
-        for (Event event : benefit.keySet()) {
-            benefitPrice += benefit.get(event);
-        }
-        System.out.printf(PRICE, formatter.format(benefitPrice));
-        return benefitPrice;
+        System.out.printf(PRICE, formatter.format(discount));
     }
 
     public static void printPayment(int price, int discount) {

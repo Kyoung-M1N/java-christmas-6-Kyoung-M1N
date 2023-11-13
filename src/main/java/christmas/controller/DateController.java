@@ -31,5 +31,4 @@ public class DateController {
         }
         return result;
     }
-
 }

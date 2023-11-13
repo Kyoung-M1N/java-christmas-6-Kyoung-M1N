@@ -41,7 +41,9 @@ public enum Menu {
     }
 
     public static boolean isMainDish(Menu menu) {
-        if (menu == Menu.T_BONE_STEAK || menu == Menu.BBQ_RIP || menu == Menu.SEAFOOD_PASTA
+        if (menu == Menu.T_BONE_STEAK
+                || menu == Menu.BBQ_RIP
+                || menu == Menu.SEAFOOD_PASTA
                 || menu == Menu.CRISTMAS_PASTA) {
             return true;
         }

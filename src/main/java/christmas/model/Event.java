@@ -5,8 +5,7 @@ public enum Event {
     WEEKDAY_DISCOUNT("평일 할인"),
     WEEKEND_DISCOUNT("주말 할인"),
     SPECIAL_DISCOUNT("특별 할인"),
-    PRESENTATION("증정 이벤트"),
-    NONE("없음");
+    PRESENTATION("증정 이벤트");
 
     private final String name;
 
