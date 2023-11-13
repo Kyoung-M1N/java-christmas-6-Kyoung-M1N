@@ -10,6 +10,7 @@ public class MenuValidator {
 
     public static Map<Menu, Integer> validate(String input) {
         Map<Menu, Integer> order = validateDuplication(input.split(","));
+        validateUnderTwenty(order);
         validateOnlyBeverage(order);
         return order;
     }
@@ -56,6 +57,16 @@ public class MenuValidator {
             }
         }
         if (onlyBeverage) {
+            throw new IllegalArgumentException(INVALID_ORDER);
+        }
+    }
+
+    static void validateUnderTwenty(Map<Menu, Integer> order) {
+        int totalAmount = 0;
+        for (Integer amount : order.values()) {
+            totalAmount += amount;
+        }
+        if (totalAmount > 20) {
             throw new IllegalArgumentException(INVALID_ORDER);
         }
     }
