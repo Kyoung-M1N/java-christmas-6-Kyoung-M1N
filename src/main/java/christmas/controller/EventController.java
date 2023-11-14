@@ -19,13 +19,13 @@ public class EventController {
         return benefit;
     }
 
-    public static void presentationEvent(int price, Map<Event, Integer> benefit) {
+    private static void presentationEvent(int price, Map<Event, Integer> benefit) {
         if (price >= 120000) {
             benefit.put(Event.PRESENTATION, Menu.CHAMPAGNE.getPrice());
         }
     }
 
-    static void christmasDdayEvent(int date, Map<Event, Integer> benefit) {
+    private static void christmasDdayEvent(int date, Map<Event, Integer> benefit) {
         int benefitPrice = 0;
         if (date < 25) {
             benefitPrice = date * 100;
@@ -33,7 +33,7 @@ public class EventController {
         }
     }
 
-    static void weekdayDiscountEvent(Map<Menu, Integer> menuList, Map<Event, Integer> benefit) {
+    private static void weekdayDiscountEvent(Map<Menu, Integer> menuList, Map<Event, Integer> benefit) {
         int benefitPrice = 0;
         for (Menu menu : menuList.keySet()) {
             if (Menu.isDessert(menu)) {
@@ -45,7 +45,7 @@ public class EventController {
         }
     }
 
-    static void weekendDiscountEvent(Map<Menu, Integer> menuList, Map<Event, Integer> benefit) {
+    private static void weekendDiscountEvent(Map<Menu, Integer> menuList, Map<Event, Integer> benefit) {
         int benefitPrice = 0;
         for (Menu menu : menuList.keySet()) {
             if (Menu.isMainDish(menu)) {
@@ -57,7 +57,7 @@ public class EventController {
         }
     }
 
-    static void specialDiscountEvent(int date, Map<Event, Integer> benefit) {
+    private static void specialDiscountEvent(int date, Map<Event, Integer> benefit) {
         int benefitPrice = 0;
         if (DateController.isChristmas(date) || DateController.isSunday(date)) {
             benefitPrice = 1000;
