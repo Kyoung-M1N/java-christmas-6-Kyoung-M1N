@@ -1,10 +1,10 @@
 package christmas.validator;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 import christmas.validators.MenuValidator;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class MenuValidatorTest {
     @DisplayName("메뉴 입력 시 중복된 값이 입력되면 예외가 발생한다.")

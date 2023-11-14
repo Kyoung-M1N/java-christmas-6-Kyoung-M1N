@@ -1,5 +1,7 @@
 package christmas.view;
 
+import static java.lang.System.out;
+
 import christmas.model.Event;
 import christmas.model.Menu;
 import java.text.DecimalFormat;
@@ -13,51 +15,51 @@ public class OutputView {
     private static final DecimalFormat formatter = new DecimalFormat("#,###,###");
 
     public static void printIntroMessage() {
-        System.out.println(INTRO_MESSAGE);
+        out.println(INTRO_MESSAGE);
     }
 
     public static void printMenu(Map<Menu, Integer> order, int date) {
-        System.out.printf(PREVIEW_MESSAGE, date);
-        System.out.println("<주문 메뉴>");
+        out.printf(PREVIEW_MESSAGE, date);
+        out.println("<주문 메뉴>");
 
         for (Menu menu : order.keySet()) {
-            System.out.printf(MENU_PRINT, menu.getName(), order.get(menu));
+            out.printf(MENU_PRINT, menu.getName(), order.get(menu));
         }
     }
 
     public static void printPrice(int price) {
-        System.out.println("\n<할인 전 총주문 금액>");
-        System.out.println(formatter.format(price));
+        out.println("\n<할인 전 총주문 금액>");
+        out.println(formatter.format(price));
     }
 
     public static void printPresentation(Map<Event, Integer> benefit) {
         String presentation = "없음";
-        System.out.println("\n<증정 메뉴>");
+        out.println("\n<증정 메뉴>");
         if (benefit.containsKey(Event.PRESENTATION)) {
             presentation = Menu.CHAMPAGNE.getName();
         }
-        System.out.println(presentation);
+        out.println(presentation);
     }
 
     public static void printBenefits(Map<Event, Integer> benefit) {
-        System.out.println("\n<혜택 내역>");
+        out.println("\n<혜택 내역>");
         if (benefit.isEmpty()) {
-            System.out.println("없음");
+            out.println("없음");
         } else if (!benefit.isEmpty()) {
             for (Event event : benefit.keySet()) {
-                System.out.printf("%s: -" + PRICE, event.getName(), formatter.format(benefit.get(event)));
+                out.printf("%s: -" + PRICE, event.getName(), formatter.format(benefit.get(event)));
             }
         }
     }
 
     public static void printBenefitPrice(int discount) {
-        System.out.println("\n<총혜택 금액>");
-        System.out.printf(PRICE, formatter.format(discount));
+        out.println("\n<총혜택 금액>");
+        out.printf(PRICE, formatter.format(discount));
     }
 
     public static void printPayment(int price, int discount) {
-        System.out.println("\n<할인 후 예상 결제 금액>");
-        System.out.printf(PRICE, formatter.format(price - discount));
+        out.println("\n<할인 후 예상 결제 금액>");
+        out.printf(PRICE, formatter.format(price - discount));
     }
 
     public static void printBadge(int discount) {
@@ -69,7 +71,7 @@ public class OutputView {
         } else if (discount >= 20000) {
             badge = "산타";
         }
-        System.out.println("\n<12월 이벤트 배지>");
-        System.out.println(badge);
+        out.println("\n<12월 이벤트 배지>");
+        out.println(badge);
     }
 }

@@ -22,7 +22,7 @@ public class EventPlanner {
         }
     }
 
-    static int calculatePrice(Map<Menu, Integer> orderList) {
+    private static int calculatePrice(Map<Menu, Integer> orderList) {
         int price = 0;
         for (Menu menu : orderList.keySet()) {
             price += menu.getPrice() * orderList.get(menu);
@@ -30,7 +30,7 @@ public class EventPlanner {
         return price;
     }
 
-    static int calculateDiscount(Map<Event, Integer> benefitList) {
+    private static int calculateDiscount(Map<Event, Integer> benefitList) {
         int discount = 0;
         for (Event event : benefitList.keySet()) {
             discount += benefitList.get(event);
@@ -38,7 +38,7 @@ public class EventPlanner {
         return discount;
     }
 
-    static void printEventResult(Map<Event, Integer> benefitList, int price) {
+    private static void printEventResult(Map<Event, Integer> benefitList, int price) {
         int discount = calculateDiscount(benefitList);
         OutputView.printPrice(price);
         OutputView.printPresentation(benefitList);
