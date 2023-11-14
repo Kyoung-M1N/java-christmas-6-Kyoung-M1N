@@ -27,8 +27,8 @@ public class EventController {
 
     private static void christmasDdayEvent(int date, Map<Event, Integer> benefit) {
         int benefitPrice = 0;
-        if (date < 25) {
-            benefitPrice = date * 100;
+        if (date <= 25) {
+            benefitPrice = 1000 + (date - 1) * 100;
             benefit.put(Event.D_DAY_DISCOUNT, benefitPrice);
         }
     }
