@@ -14,7 +14,7 @@ public class EventPlanner {
             int date = InputView.readDate();
             Map<Menu, Integer> orderList = InputView.order();
             int price = calculatePrice(orderList);
-            Map<Event, Integer> benefitList = EventController.eventCount(orderList, date, price);
+            Map<Event, Integer> benefitList = EventController.eventCount(orderList, date);
             OutputView.printMenu(orderList, date);
             printEventResult(benefitList, price);
         } catch (Exception e) {

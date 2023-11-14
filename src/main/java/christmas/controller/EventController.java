@@ -6,7 +6,7 @@ import christmas.model.Event;
 import christmas.model.Menu;
 
 public class EventController {
-    public static Map<Event, Integer> eventCount(Map<Menu, Integer> order, int date, int price) {
+    public static Map<Event, Integer> eventCount(Map<Menu, Integer> order, int date) {
         Map<Event, Integer> benefit = new HashMap<Event, Integer>();
         if (DateController.isWeekend(date)) {
             weekendDiscountEvent(order, benefit);
@@ -14,12 +14,16 @@ public class EventController {
             weekdayDiscountEvent(order, benefit);
         }
         christmasDdayEvent(date, benefit);
-        presentationEvent(price, benefit);
+        presentationEvent(order, benefit);
         specialDiscountEvent(date, benefit);
         return benefit;
     }
 
-    private static void presentationEvent(int price, Map<Event, Integer> benefit) {
+    private static void presentationEvent(Map<Menu, Integer> order, Map<Event, Integer> benefit) {
+        int price = 0;
+        for (Menu menu : order.keySet()) {
+            price += menu.getPrice() * order.get(menu);
+        }
         if (price >= 120000) {
             benefit.put(Event.PRESENTATION, Menu.CHAMPAGNE.getPrice());
         }
